@@ -14,6 +14,8 @@
 
 7、[448. 找到所有数组中消失的数字](https://github.com/sinkhaha/algorithm/blob/main/7_findDisappearedNumbers_448.md) `简单` `数组`
 
+8、[621. 任务调度器](https://github.com/sinkhaha/algorithm/blob/main/8_leastInterval_621.md) `简单` `数组` `哈希表` `计数` 
+
 # 其他
 * [遍历二维数组每个元素周围8个元素](https://github.com/sinkhaha/algorithm/blob/main/%E5%85%B6%E4%BB%96/%E9%81%8D%E5%8E%86%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E5%91%A8%E5%9B%B48%E4%B8%AA%E5%85%83%E7%B4%A0.md)
 
