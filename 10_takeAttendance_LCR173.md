@@ -72,7 +72,7 @@ var takeAttendance = function(records) {
 
 
 
-假设缺失的元素值为 `x`，如果 `x` 左边存在元素，则 `x` 左边的元素一定是连续的，也就是元素数值和下标是相等的，即 `nums[i] == i`；如果 `x` 右边存在元素，而其右边的元素因为 `x` 的缺失，一定是元素数值和下标不相等的， 即 `nums[i] != i`，我们把整个数组看成两部分
+假设缺失的元素值为 `x`，则 `x` 左边的元素（若有）一定是连续的，也就是元素数值和下标是相等的，即 `nums[i] == i`；其右边的元素（若有）因为 `x` 的缺失，一定是元素数值和下标不相等的， 即 `nums[i] != i`，所以可以把整个数组看成两部分
 
 1. 左子数组 `nums[i] == i`
 2. 右子数组 `nums[i] != i`
@@ -83,13 +83,13 @@ var takeAttendance = function(records) {
 
 **二分算法**
 
-1、初始化左边界 `left = 0` ，右边界 `right = len(nums) − 1`，表示 `[left, right]` 闭区间
+1、初始化左边界 `left = 0` ，右边界 `right = len(records) − 1`，表示 `[left, right]` 闭区间
 
-2、二分：
+2、二分
 
-* 当 `left <= right` 时循环二分，计算 left 和 right 的中点 mid，
-* 若 `nums[mid] = mid` ，当前元素跟索引相等，说明 `mid` 前面的元素肯定都是完整的连续的元素，那应该去右子数组中查找，即缺少的数字肯定在 `[mid + 1, right]` 闭区间中，所以 `left = mid + 1`
-* 若 `nums[mid] != mid` ，当前元素跟索引不相等，那应该去找左子数组中查找，即缺少的数字一定在 `[left, mid - 1]` 闭区间中，所以 `right = mid - 1`
+* 当 `left <= right` 时循环二分，计算 `left` 和 `right` 的中点 `mid`
+* 若 `nums[mid] = mid` ，当前元素值跟下标相等，说明 `mid` 左边的元素一定是连续，那应该去右子数组中查找缺失的元素，即缺失的数字在 `[mid + 1, right]` 闭区间中，所以 `left = mid + 1`
+* 若 `nums[mid] != mid` ，当前元素值跟下标不相等，那应该去找左子数组中查找，即缺少的数字一定在 `[left, mid - 1]` 闭区间中，所以 `right = mid - 1`
 
 3、 当 `left > right` 时就跳出循环，此时变量 `left` 和 `right` 分别指向 “右子数组的首元素” 和 “左子数组的末元素” ，因此返回 `left`  即可
 
