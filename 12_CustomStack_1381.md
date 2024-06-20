@@ -14,6 +14,8 @@
 * void inc(int k, int val)：栈底的 k 个元素的值都增加 val 。如果栈中元素总数小于 k ，则栈中的所有元素都增加 val 。
 
 
+
+
 示例：
 
 ```
@@ -42,11 +44,9 @@ customStack.pop();                            // 返回 -1 --> 栈为空，返�
 
 提示：
 
-* 1 <= maxSize <= 1000
-* 1 <= x <= 1000
-* 1 <= k <= 1000
-* 0 <= val <= 100
-* 每种方法 increment，push 以及 pop 分别最多调用 1000 次
+* `1 <= maxSize, x, k <= 1000`
+* `0 <= val <= 100`
+* 每种方法 `increment`，`push` 以及 `pop` 分别最多调用 `1000` 次
 
 >leetcode地址：https://leetcode-cn.com/problems/design-a-stack-with-increment-operation
 
@@ -56,11 +56,62 @@ customStack.pop();                            // 返回 -1 --> 栈为空，返�
 
 ## 思路
 
-最暴力的方法是直接用`数组`模拟栈，`push` 和 `pop` 时只需要操作数组原生的方法即可，`increment` 时为栈中的每个元素都加上增量的值
+最简单直接的方式就是用`数组`模拟栈，`push` 和 `pop` 时只需要操作数组原生的方法即可，`increment` 时为栈中的每个元素都加上增量的值
 
 
 
 ## 代码
+
+**rust 代码**
+
+```rust
+struct CustomStack {
+    max_size: usize,
+    stack: Vec<i32>,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl CustomStack {
+    fn new(max_size: i32) -> Self {
+        Self {
+            max_size: max_size as usize,
+            stack: Vec::new(),
+        }
+    }
+    
+    fn push(&mut self, x: i32) {
+        if self.stack.len() < self.max_size {
+            self.stack.push(x);
+        }
+    }
+    
+    fn pop(&mut self) -> i32 {
+        self.stack.pop().unwrap_or(-1)
+    }
+    
+    fn increment(&mut self, k: i32, val: i32) {
+        let k = std::cmp::min(k as usize, self.stack.len());
+        
+        // 有增量时，取 stack 中索引小于 k 的每个元素加上增量的值再次存入 stack 中
+        for i in 0..k {
+            *(self.stack.get_mut(i).unwrap()) += val;
+        }
+    }
+}
+
+/**
+ * Your CustomStack object will be instantiated and called as such:
+ * let obj = CustomStack::new(maxSize);
+ * obj.push(x);
+ * let ret_2: i32 = obj.pop();
+ * obj.increment(k, val);
+ */
+```
+
+
 
 **js 代码**
 
@@ -97,7 +148,7 @@ CustomStack.prototype.pop = function() {
  * @return {void}
  */
 CustomStack.prototype.increment = function(k, val) {
-    // 注意：当有增量时，取栈中的每个元素加上增量的值再次存入栈中
+    // 有增量时，取 stack 中索引小于 k 的每个元素加上增量的值再次存入 stack 中
     let length = Math.min(k, this.stack.length);
     for (let i = 0; i < length; i++) {
         this.stack[i] += val;
@@ -113,12 +164,12 @@ CustomStack.prototype.increment = function(k, val) {
  */
 ```
 
+
+
 ## 复杂度
 
 * 时间复杂度 `push: O(1)`、`pop: O(1)`、`increment：O(N) `，`N` 为 `min(k， 栈中元素的个数)`
 * 空间复杂度 `O(N)`，`N` 为 `maxSize`
-
-
 
 
 
@@ -143,7 +194,7 @@ CustomStack.prototype.increment = function(k, val) {
 * 在 `increment` 方法中只保存下标和增量关系到哈希表
 * 在 `pop` 时才去为"弹出的元素"加上增量，`pop` 后的元素对应的下标 `top_index` 的增量要置为 `0`
 
-注意：`pop` 栈顶元素后，如果 `pop` 出的元素有增量（假设栈顶元素的下标为 `top_index` ），则哈希表中要为 `top_index - 1` 这个下标增加一样的增量。因为哈希表保存的增量并不是键 `key` 这个下标对应元素自己的增量 ，而是小于等于 `key` 的所有下标对应元素的增量，现在栈顶元素出栈了，下一个充当栈顶的元素只有加上出栈的栈顶元素的增量，这样每次出栈，才能把小于 `key` 的所有元素都增加一样的增量）
+**注意：**`pop` 栈顶元素后，如果 `pop` 出的元素有增量（假设栈顶元素的下标为 `top_index` ），则哈希表中要为 `top_index - 1` 这个下标增加一样的增量。因为哈希表保存的增量并不是键 `key` 这个下标对应元素自己的增量 ，而是小于等于 `key` 的所有下标对应元素的增量，现在栈顶元素出栈了，下一个充当栈顶的元素只有加上出栈的栈顶元素的增量，这样每次出栈，才能把小于 `key` 的所有元素都增加一样的增量）
 
 
 
@@ -152,7 +203,79 @@ CustomStack.prototype.increment = function(k, val) {
 **rust 代码**
 
 ```rust
+use std::collections::HashSet;
 
+use std::collections::HashMap;
+struct CustomStack {
+    max_size: usize,
+    // 用数组保存栈的数据
+    stack: Vec<i32>,
+    // key是数组下标，value是增量
+    incr_hash_map: HashMap<usize, i32>, 
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl CustomStack {
+    fn new(max_size: i32) -> Self {
+        Self {
+            max_size: max_size as usize,
+            stack: Vec::new(),
+            incr_hash_map: HashMap::new()
+        }
+    }
+    
+    fn push(&mut self, x: i32) {
+        if self.stack.len() < self.max_size {
+            self.stack.push(x);
+        }
+    }
+    
+    fn pop(&mut self) -> i32 {
+        // 栈为空
+        if self.stack.is_empty() {
+            return -1;
+        }
+        
+        let top_index = self.stack.len() - 1;
+
+        // 栈顶元素的增量，取出来后要清空，然后 top_index - 1 的索引要保存增量，取出来后删掉增量
+        let inc_value = self.incr_hash_map.remove(&top_index).unwrap_or(0);
+
+        // 返回结果就是栈顶元素加上增量
+        let top_value = self.stack.pop().unwrap();
+        let result = top_value + inc_value;
+
+        // 为 top_index - 1 的索引保存增量，表示 top_index - 1 的元素出栈时也需要加上增量
+        // new_top_index 为 top_index - 1
+        if let Some(new_top_index) = self.stack.len().checked_sub(1) {
+            // 获取 new_top_index 键值对，key 不存在则设置值为0，然后加上增量
+            *self.incr_hash_map.entry(new_top_index).or_insert(0) += inc_value;
+        }
+       
+        result
+    }
+    
+    fn increment(&mut self, k: i32, val: i32) {
+        let index = k.min(self.stack.len() as i32) - 1;
+        if index < 0 {
+            return;
+        }
+        
+        // key不存在则是指值为0，然后为key加上 val
+        *self.incr_hash_map.entry(index as usize).or_insert(0) += val;
+    }
+}
+
+/**
+ * Your CustomStack object will be instantiated and called as such:
+ * let obj = CustomStack::new(maxSize);
+ * obj.push(x);
+ * let ret_2: i32 = obj.pop();
+ * obj.increment(k, val);
+ */
 ```
 
 
@@ -190,7 +313,7 @@ CustomStack.prototype.pop = function() {
         return -1;
     }
 
-    // 栈顶元素的增量，取出来后要清空，然后 top - 1 的索引要保存增量
+    // 栈顶元素的增量，取出来后要清空，然后 topIndex - 1 的索引要保存增量
     let incValue = this.hashMap.get(topIndex) || 0;
     // 删掉增量
     this.hashMap.delete(topIndex);
