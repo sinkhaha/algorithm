@@ -173,7 +173,7 @@ CustomStack.prototype.increment = function(k, val) {
 
 
 
-# 解法2：空间换时间
+# 解法2：哈希表 + 数组(空间换时间)
 
 ## 思路
 
