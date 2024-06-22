@@ -76,7 +76,31 @@ arr是一个可能包含`重复元素`的整数数组，我们将这个数组分
 **rust 代码**
 
 ```rust
+impl Solution {
+    pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
+        let mut stack: Vec<i32> = Vec::new();
 
+        for i in 0..arr.len() {
+            let val = arr[i];
+
+            // 大于栈顶元素，直接入栈，算一个块
+            if stack.len() == 0 || val >= stack[stack.len() - 1] {
+                stack.push(val);
+            } else {
+                let cur_max = stack.pop().unwrap();
+
+                // val和这些弹出的元素算一个块
+                while stack.len() > 0 && val < stack[stack.len() - 1] {
+                    stack.pop().unwrap();
+                }
+
+                stack.push(cur_max);
+            }
+        }
+
+        stack.len() as i32
+    }
+}
 ```
 
 
@@ -141,6 +165,37 @@ var maxChunksToSorted = function(arr) {
 
 
 ## 代码
+
+**rust 代码**
+
+```rust
+impl Solution {
+    pub fn max_chunks_to_sorted(arr: Vec<i32>) -> i32 {
+        let mut count = 0;
+
+        let mut sum1 = 0; // arr 前 n 项和
+        let mut sum2 = 0;  // arr_sort 前 n项和
+
+        // 拷贝数组，升序排序
+        let mut arr_sort = arr.clone();
+        arr_sort.sort();
+
+        for i in 0..arr.len() {
+            sum1 += arr[i];
+            sum2 += arr_sort[i];
+
+            // 此时可以组成一个块
+            if (sum1 == sum2) {
+                count += 1;
+            }
+        }
+
+        count
+    }
+}
+```
+
+
 
 **js 代码**
 
