@@ -29,6 +29,8 @@
 ## 栈
 * [1381. 设计一个支持增量操作的栈](https://github.com/sinkhaha/algorithm/blob/main/12_CustomStack_1381.md) `中等` `栈` `数组` `哈希表` 
 
+* [394. 字符串解码](https://github.com/sinkhaha/algorithm/blob/main/13_decodeString_394.md) `中等` `栈`
+  
 # 其他
 * [遍历二维数组每个元素周围8个元素](https://github.com/sinkhaha/algorithm/blob/main/%E5%85%B6%E4%BB%96/%E9%81%8D%E5%8E%86%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E5%91%A8%E5%9B%B48%E4%B8%AA%E5%85%83%E7%B4%A0.md)
 
