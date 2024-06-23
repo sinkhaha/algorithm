@@ -42,6 +42,7 @@
   
   > 相同题目 [LCR 036. 逆波兰表达式求值](https://leetcode.cn/problems/8Zf90G/description/)
 
+* [316. 去除重复字母](https://github.com/sinkhaha/algorithm/blob/main/19_removeDuplicateLetters_316.md) `中等` `栈`
 
 ### 单调栈
 * [768. 最多能完成排序的块 II](https://github.com/sinkhaha/algorithm/blob/main/15_maxChunksToSorted_768.md) `困难` `单调递增栈` `排序`
