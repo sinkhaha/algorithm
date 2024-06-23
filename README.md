@@ -36,7 +36,7 @@
 * [20. 有效的括号](https://github.com/sinkhaha/algorithm/blob/main/16_isValid_20.md) `简单` `栈`
 
 * [150. 逆波兰表达式求值](https://github.com/sinkhaha/algorithm/blob/main/17_evalRPN_150.md) `中等` `栈` `后缀表达式`
-  > 类似题目 [LCR 036. 逆波兰表达式求值](https://leetcode.cn/problems/8Zf90G/description/)
+  > 相同题目 [LCR 036. 逆波兰表达式求值](https://leetcode.cn/problems/8Zf90G/description/)
 
 
 ### 单调栈
