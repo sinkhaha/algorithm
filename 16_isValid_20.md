@@ -32,6 +32,8 @@
 * `1 <= s.length <= 104`
 * `s 仅由括号 '()[]{}' 组成`
 
+> leetcode地址：https://leetcode.cn/problems/valid-parentheses/description/
+
 
 
 # 思路
