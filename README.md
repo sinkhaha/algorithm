@@ -44,6 +44,8 @@
 
 * [316. 去除重复字母](https://github.com/sinkhaha/algorithm/blob/main/19_removeDuplicateLetters_316.md) `中等` `栈`
 
+* [844. 比较含退格的字符串](https://github.com/sinkhaha/algorithm/blob/main/20_backspaceCompare_844.md) `简单` `栈` `双指针`
+
 ### 单调栈
 * [768. 最多能完成排序的块 II](https://github.com/sinkhaha/algorithm/blob/main/15_maxChunksToSorted_768.md) `困难` `单调递增栈` `排序`
 
