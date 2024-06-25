@@ -1,5 +1,5 @@
 # 题解
-## 数组
+## 一、数组
 * [66. 加一](https://github.com/sinkhaha/algorithm/blob/main/1_plus_one_66.md) `简单` `数组`
 
 * [821. 字符的最短距离](https://github.com/sinkhaha/algorithm/blob/main/2_shortestToChar_821.md) `简单` `数组`
@@ -26,7 +26,7 @@
 
 * [LCR 186. 文物朝代判断](https://github.com/sinkhaha/algorithm/blob/main/11_checkDynasty_LCR186.md) `简单` `数组`
 
-## 栈
+## 二、栈
 * [1381. 设计一个支持增量操作的栈](https://github.com/sinkhaha/algorithm/blob/main/12_CustomStack_1381.md) `中等` `栈` `数组` `哈希表` 
 
 * [394. 字符串解码](https://github.com/sinkhaha/algorithm/blob/main/13_decodeString_394.md) `中等` `栈`
@@ -46,18 +46,27 @@
 * [316. 去除重复字母](https://github.com/sinkhaha/algorithm/blob/main/19_removeDuplicateLetters_316.md) `中等` `栈`
 
   > 相同题目 [1081 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/description/)
+  
 * [844. 比较含退格的字符串](https://github.com/sinkhaha/algorithm/blob/main/20_backspaceCompare_844.md) `简单` `栈` `双指针`
+
+* [LCR 148. 验证图书取出顺序](https://github.com/sinkhaha/algorithm/blob/main/21_validateBookSequences_LCR148.md) `中等` `栈` `模拟`
+
+  > 相同题目 [946. 验证栈序列](https://leetcode.cn/problems/validate-stack-sequences/)
+
+
 
 ### 单调栈
 * [768. 最多能完成排序的块 II](https://github.com/sinkhaha/algorithm/blob/main/15_maxChunksToSorted_768.md) `困难` `单调递增栈` `排序`
 
-## 队列
 
 
-## 堆
+## 三、队列
 
 
-## 链表
+## 四、堆
+
+
+## 五、链表
 
 # 其他
 * [遍历二维数组每个元素周围8个元素](https://github.com/sinkhaha/algorithm/blob/main/%E5%85%B6%E4%BB%96/%E9%81%8D%E5%8E%86%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E5%91%A8%E5%9B%B48%E4%B8%AA%E5%85%83%E7%B4%A0.md)
