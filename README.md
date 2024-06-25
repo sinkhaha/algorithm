@@ -36,6 +36,7 @@
 * [155. 最小栈](https://github.com/sinkhaha/algorithm/blob/main/18_MinStack_155.md) `中等` `栈` `最小栈`
 
   > 相同题目 [LCR 147. 最小栈](https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/description/)
+  
 * [20. 有效的括号](https://github.com/sinkhaha/algorithm/blob/main/16_isValid_20.md) `简单` `栈`
 
 * [150. 逆波兰表达式求值](https://github.com/sinkhaha/algorithm/blob/main/17_evalRPN_150.md) `中等` `栈` `后缀表达式`
@@ -44,6 +45,7 @@
 
 * [316. 去除重复字母](https://github.com/sinkhaha/algorithm/blob/main/19_removeDuplicateLetters_316.md) `中等` `栈`
 
+  > 相同题目 [1081 不同字符的最小子序列](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/description/)
 * [844. 比较含退格的字符串](https://github.com/sinkhaha/algorithm/blob/main/20_backspaceCompare_844.md) `简单` `栈` `双指针`
 
 ### 单调栈
