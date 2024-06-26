@@ -52,6 +52,10 @@
 * [LCR 148. 验证图书取出顺序](https://github.com/sinkhaha/algorithm/blob/main/21_validateBookSequences_LCR148.md) `中等` `栈` `模拟`
 
   > 相同题目 [946. 验证栈序列](https://leetcode.cn/problems/validate-stack-sequences/)
+  
+* [LCR 037. 行星碰撞](https://github.com/sinkhaha/algorithm/blob/main/22_asteroidCollision_LCR037.md) `中等` `栈` `模拟`
+
+  > 相同题目 [735. 小行星碰撞](https://leetcode.cn/problems/asteroid-collision/)
 
 
 

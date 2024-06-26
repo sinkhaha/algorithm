@@ -98,6 +98,54 @@
 
 # 代码
 
+**rust 代码**
+
+```rust
+impl Solution {
+ 
+    pub fn asteroid_collision(asteroids: Vec<i32>) -> Vec<i32> {
+        let mut stack: Vec<i32> = vec![];
+
+        for i in 0..asteroids.len() {
+            let num = asteroids[i];
+
+            if num > 0 {
+                stack.push(num);
+            } else {
+                let mut cur_alive = true;
+                // 此时顺序是[正，负]
+                while !stack.is_empty() && *stack.last().unwrap() > 0 {
+                    let left = *stack.last().unwrap();
+                     // 正 > ｜负｜，此时负数的行星爆炸了，所以标识为不存活，也不入栈
+                    if left > num.abs() {
+                        cur_alive = false;
+                        break;
+                    } else if left < num.abs() {
+                        //  正 < ｜负｜，栈顶的行星爆炸，继续循环拿当前元素跟栈顶元素比较
+                        stack.pop();
+                    } else {
+                        // 正 == ｜负｜，两个都爆炸
+                        stack.pop(); // 栈顶爆炸
+                        cur_alive = false;
+                        break;
+                    }
+                }
+
+                if cur_alive {
+                    stack.push(num);
+                }
+            }
+        }
+
+        stack
+    }
+
+
+}
+```
+
+
+
 **js 代码**
 
 ```js
@@ -141,8 +189,6 @@ var asteroidCollision = function(asteroids) {
     return stack;
 };
 ```
-
-
 
 # 复杂度
 
