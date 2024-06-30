@@ -60,9 +60,9 @@
   
 
 ### 栈-计算器
-* [面试题 16.26. 计算器](https://github.com/sinkhaha/algorithm/blob/main/23_calculate.16.26.md) `中等` `栈` `无括号`
+* [227. 基本计算器 II](https://github.com/sinkhaha/algorithm/blob/main/23_calculate_227.md) `中等` `栈` `无括号`
 
-  > [227. 基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii/)
+  > 相同题目 [面试题 16.26. 计算器](https://leetcode-cn.com/problems/calculator-lcci/)
 
 * [224. 基本计算器](https://leetcode.cn/problems/basic-calculator/description/) `困难` `加减号` `有括号` 
 
