@@ -56,11 +56,19 @@
 * [LCR 037. 行星碰撞](https://github.com/sinkhaha/algorithm/blob/main/22_asteroidCollision_LCR037.md) `中等` `栈` `模拟`
 
   > 相同题目 [735. 小行星碰撞](https://leetcode.cn/problems/asteroid-collision/)
+  
+  
 
-### 计算器
+### 栈-计算器
 * [面试题 16.26. 计算器](https://github.com/sinkhaha/algorithm/blob/main/23_calculate.16.26.md) `中等` `栈` `无括号`
 
-### 单调栈
+  > [227. 基本计算器 II](https://leetcode.cn/problems/basic-calculator-ii/)
+
+* [224. 基本计算器](https://leetcode.cn/problems/basic-calculator/description/) `困难` `加减号` `有括号` 
+
+
+
+### 栈-单调栈
 * [768. 最多能完成排序的块 II](https://github.com/sinkhaha/algorithm/blob/main/15_maxChunksToSorted_768.md) `困难` `单调递增栈` `排序`
 
 
